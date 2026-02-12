@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.main > section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  overflow-y: auto;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.main > section:nth-child(even) {
+  background-color: #564f8f;
+}
+
+.main-body {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main-body {
+    flex-direction: column;
+  }
+
+  .main {
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  .main > section {
+    height: auto;
+    max-height: none;
+    padding: 60px 16px;
+  }
+}

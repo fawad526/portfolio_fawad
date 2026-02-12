@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Space+Mono&display=swap');
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Space Mono', monospace;
+  font-weight: 400;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgb(209, 209, 209);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #564f8f;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Rubik Dirt', sans-serif;
+  font-weight: 400;
+  color: #564f8f;
+}
+
+:not(svg) {
+  transform-origin: 0px 0px;
+}

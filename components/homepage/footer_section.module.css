@@ -1,0 +1,97 @@
+.contact {
+  background-color: #564f8f;
+  font-size: 20px;
+  padding: 100px 0;
+  text-align: center;
+  visibility: visible;
+  opacity: 1;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+  transition: opacity 3s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s, transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+}
+
+.contact > div {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-overline {
+  visibility: visible;
+  line-height: 1.1;
+  margin: 10px 0 40px;
+  color: white;
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-weight: 400;
+}
+
+.title {
+  margin: 0px 0px 10px;
+  font-weight: 400;
+  color: #64ffda;
+  line-height: 1.1;
+  font-size: 40px;
+  letter-spacing: 2px;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
+
+.title::before,
+.title::after {
+ content: '';
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+
+.title::before {
+  background-color: #64ffda;
+  height: 2px;
+  bottom: 0;
+  transform-origin: 100% 50%;
+  transform: scaleX(0);
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+.title:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+
+.contact  p {
+  color: white;
+  font-size: 16px;
+  letter-spacing: 2px;
+  line-height: 1.3;
+  text-align: center;
+  visibility: visible;
+  box-sizing: inherit;
+  margin: 20px 10px;
+}
+
+.contact  a {
+  display: inline-block;
+  color: #64ffda;
+  font-weight: bold;
+  background-color: transparent;
+  border: 1px solid #64ffda;
+  border-radius: 4px;
+  padding: 20px;
+  font-size: 20px;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+  margin-top: 50px;
+  letter-spacing: 2px;
+  align-self: center;
+}
+
+.contact  a:hover {
+  padding: 20px;
+  font-size: 22px;
+  color: #564f8f;
+  background-color: #ace6d891;
+  transition: all 0.25s cubic-bezier(0.645,0.045,0.355,1);
+
+}

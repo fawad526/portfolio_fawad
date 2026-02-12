@@ -1,0 +1,135 @@
+.first-section {
+  display: flex;
+  flex-direction: row !important;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  flex: 1;
+  max-height: 100vh;
+  width: 100%;
+  margin-bottom: 3rem;
+}
+
+.heading {
+  font-size: 3.5rem;
+  margin-bottom: 0.2rem;
+}
+
+@media (max-width: 990px) {
+  .heading {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 575px) {
+  .full-profile-image {
+    left: 70px !important;
+  }
+
+  .left-side {
+    padding: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 1025px) and (min-width: 500px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+
+  .icons-container:nth-child(1) {
+    bottom: 130px !important;
+  }
+
+  .icons-container:nth-child(2) {
+    top: 50px !important;
+  }
+}
+
+.full-profile-image {
+  height: 70%;
+  left: 100px;
+  position: relative;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 30%;
+  padding-right: 2rem;
+  align-self: flex-start;
+  height: 100%;
+}
+
+.icon-container {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  background-color: #564f8f0a;
+  padding: 0.8rem;
+  border-radius: 50%;
+}
+
+.icon-container:nth-child(1) {
+  top: 50px;
+  left: 20px;
+}
+
+.icon-container:nth-child(2) {
+  top: -50px;
+}
+
+.icon-container:nth-child(3) {
+  left: -75px;
+  top: 20px;
+}
+
+.icons-container {
+  position: relative;
+}
+
+.icons-container:nth-child(1) {
+  bottom: 150px;
+}
+
+.icons-container:nth-child(2) {
+  top: 150px;
+}
+
+@media (max-width: 768px) {
+  .first-section {
+    flex-direction: column !important;
+    padding: 40px 16px;
+  }
+
+  .full-profile-image {
+    position: static;
+    height: auto;
+    max-width: 260px;
+    width: 100%;
+    margin-top: 24px;
+  }
+
+  .left-side {
+    padding-right: 0;
+    align-self: center;
+  }
+
+  .icons-container,
+  .icon-container {
+    position: static;
+  }
+
+  .icons-container {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .icon-container {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+  }
+}
