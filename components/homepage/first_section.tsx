@@ -1,5 +1,5 @@
 import styles from './first_section.module.css';
-import full_pic from '../../public/full_pic.jpg';
+import full_pic from '../../public/fullpic2.png';
 
 export default function FirstSection() {
   return (
@@ -17,7 +17,7 @@ export default function FirstSection() {
             <div className={styles['icon-container']}>
               <img
                 alt="Next.js"
-                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original-wordmark.svg"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg"
               />
             </div>
             <div className={styles['icon-container']}>
