@@ -11,8 +11,7 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Muhammad Fawad Iqbal | Portfolio</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>Muhammad Fawad Iqbal</title>
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
