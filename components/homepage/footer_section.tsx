@@ -4,7 +4,7 @@ export default function FooterSection() {
   return (
     <section className={ "profile-section" + " " + styles["contact"]}>
       <div>
-        <h2 className={styles["contact-overline"]}>What's Next?</h2>
+        <h2 className={styles["contact-overline"]}>What&apos;s Next?</h2>
         <h2 className={styles["title"]}>Get In Touch <span></span></h2>
         <p>
           I&apos;m always open to exciting opportunities, collaborations, or just a friendly chat.
