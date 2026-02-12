@@ -36,3 +36,10 @@ export default function ProfileEditor() {
     </div>
   );
 }
+
+// Add this to disable static generation and use server-side rendering
+export async function getServerSideProps() {
+  return {
+    props: {},
+  };
+}
