@@ -13,6 +13,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Muhammad Fawad Iqbal</title>
+          <link rel="icon" href="/fullpic2.png" />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
