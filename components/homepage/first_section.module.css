@@ -6,6 +6,8 @@
   flex-wrap: wrap;
   gap: 3rem;
   padding: 3rem 2rem;
+  height: 100vh;
+  /* overflow-y: auto; */
 }
 
 .heading {
