@@ -83,7 +83,7 @@
 
 .skills-list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(140px, 200px));
+  grid-template-columns: repeat(3, minmax(140px, 200px));
   gap: 0px 10px;
   margin: 20px 0px 0px;
 }
@@ -96,6 +96,8 @@
   padding-left: 20px;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .skills-list li::before {
@@ -105,11 +107,17 @@
   color: #64ffda;
   font-size: 16px;
   line-height: 12px;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
 .skills-list li:hover {
   color: #64ffda;
-  transition: all 1s ease-out;
+  transform: translateX(5px);
+}
+
+.skills-list li:hover::before {
+  transform: translateX(-2px);
+  color: #9acec3;
 }
 
 .about-pic {
@@ -186,6 +194,10 @@ max-width: 300px;
     justify-content: center;
     align-items: center;
   }
+
+  .skills-list {
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+  }
 }
 
 @media (max-width: 768px) {
@@ -211,7 +223,7 @@ max-width: 300px;
   }
 
   .skills-list {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .about-pic {

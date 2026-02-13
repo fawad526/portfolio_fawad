@@ -7,7 +7,8 @@ export default function FirstSection() {
       <h1 className={styles['heading']}>Muhammad Fawad Iqbal</h1>
       <div className={`profile-section ${styles['first-section']}`}>
         <div className={styles['left-side']}>
-          <div className={styles['icons-container']}>
+          {/* Top 6 logos */}
+          <div className={`${styles['icons-row']} ${styles['icons-row-top']}`}>
             <div className={styles['icon-container']}>
               <img
                 alt="React"
@@ -26,8 +27,12 @@ export default function FirstSection() {
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
               />
             </div>
-          </div>
-          <div className={styles['icons-container']}>
+            <div className={styles['icon-container']}>
+              <img
+                alt="JavaScript"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+              />
+            </div>
             <div className={styles['icon-container']}>
               <img
                 alt="Node.js"
@@ -40,10 +45,48 @@ export default function FirstSection() {
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original-wordmark.svg"
               />
             </div>
+          </div>
+
+          {/* Bottom 6 logos */}
+          <div className={`${styles['icons-row']} ${styles['icons-row-bottom']}`}>
             <div className={styles['icon-container']}>
               <img
                 alt="PostgreSQL"
                 src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original-wordmark.svg"
+              />
+            </div>
+            <div className={styles['icon-container']}>
+              <img
+                alt="Express.js"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+              />
+            </div>
+            <div className={styles['icon-container']}>
+              <img
+                alt="Tailwind CSS"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/tailwindcss/tailwindcss-original.svg"
+                onError={(e) => {
+                  e.currentTarget.src =
+                    'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/icons/tailwindcss/tailwindcss-plain.svg';
+                }}
+              />
+            </div>
+            <div className={styles['icon-container']}>
+              <img
+                alt="Redux"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg"
+              />
+            </div>
+            <div className={styles['icon-container']}>
+              <img
+                alt="Firebase"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg"
+              />
+            </div>
+            <div className={styles['icon-container']}>
+              <img
+                alt="AWS"
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg"
               />
             </div>
           </div>

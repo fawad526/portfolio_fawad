@@ -32,12 +32,29 @@ export default function SecondSection() {
               <p>Here are a few technologies I&apos;ve been working with recently:</p>
             </div>
             <ul className={styles['skills-list']}>
-              <li>JavaScript / TypeScript</li>
-              <li>React.js / Next.js</li>
-              <li>Node.js / Express.js</li>
+              <li>React native</li>
+              <li>Next.js</li>
+              <li>Tailwind css</li>
+              <li>Redux</li>
+              <li>React.js</li>
+              <li>Typescript</li>
+              <li>JavaScript</li>
+              <li>AG-Grid</li>
+              <li>Node.js</li>
+              <li>Express.js</li>
               <li>MongoDB</li>
-              <li>PostgreSQL / SQL</li>
-              <li>AWS (EC2, S3, RDS)</li>
+              <li>Firebase</li>
+              <li>GitHub</li>
+              <li>Django</li>
+              <li>Figma</li>
+              <li>AWS</li>
+              <li>Bootstrap</li>
+              <li>Material UI</li>
+              <li>MySQL</li>
+              <li>Native Base</li>
+              <li>PostgreSQL</li>
+              <li>Shadcn UI</li>
+              <li>Socket.io</li>
             </ul>
           </div>
           <div className={styles['about-pic']}>

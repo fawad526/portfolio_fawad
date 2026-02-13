@@ -1,0 +1,154 @@
+.work-experience {
+  background-color: #0a192f;
+  padding: 100px 20px;
+  min-height: 100vh !important;
+  height: unset !important;
+  max-height: unset !important;
+  color: #fff;
+}
+
+.work-experience > div {
+  margin: 3rem;
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-heading {
+  color: white;
+  line-height: 1.1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px 0px 40px;
+  width: 100%;
+  font-size: 35px;
+  white-space: nowrap;
+}
+
+.section-heading::after {
+  content: '';
+  position: relative;
+  width: 300px;
+  height: 1px;
+  margin-left: 20px;
+  background-color: #6fa094;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.experience-item {
+  background-color: #112240;
+  padding: 25px;
+  border-radius: 4px;
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+  border-left: 2px solid transparent;
+}
+
+.experience-item:hover {
+  background-color: #1a2f52;
+  border-left-color: #64ffda;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.7);
+}
+
+.experience-header {
+  margin-bottom: 15px;
+}
+
+.experience-title {
+  color: #64ffda;
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+}
+
+.experience-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.experience-company {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.experience-separator {
+  color: #8892b0;
+  font-size: 18px;
+}
+
+.experience-period {
+  color: #8892b0;
+  font-size: 16px;
+  margin: 0;
+}
+
+.experience-description {
+  color: #a8b2d1;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media only screen and (max-width: 1025px) {
+  .section-heading {
+    font-size: 2rem;
+  }
+
+  .experience-title {
+    font-size: 20px;
+  }
+
+  .experience-company {
+    font-size: 16px;
+  }
+
+  .experience-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .work-experience {
+    padding: 60px 16px;
+  }
+
+  .work-experience > div {
+    margin: 1.5rem 0;
+  }
+
+  .section-heading {
+    font-size: 2rem;
+    white-space: normal;
+  }
+
+  .section-heading::after {
+    display: none;
+  }
+
+  .experience-item {
+    padding: 20px;
+  }
+
+  .experience-title {
+    font-size: 18px;
+  }
+
+  .experience-company {
+    font-size: 15px;
+  }
+
+  .experience-description {
+    font-size: 13px;
+  }
+}

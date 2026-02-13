@@ -4,6 +4,7 @@ import SidePanel from '@/components/side_panel';
 import FirstSection from '@/components/homepage/first_section';
 import SecondSection from '@/components/homepage/second_section';
 import { ThirdSection } from '@/components/homepage/third_section';
+import WorkExperienceSection from '@/components/homepage/work_experience_section';
 import NavigationMenu from '@/components/navigation_menu';
 import FooterSection from '@/components/homepage/footer_section';
 
@@ -24,6 +25,7 @@ export default function Home() {
           <FirstSection />
           <SecondSection />
           <ThirdSection />
+          <WorkExperienceSection />
           <FooterSection />
         </main>
       </div>

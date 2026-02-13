@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden;
   height: 100vh;
   max-height: 100vh;
 }
@@ -44,7 +44,7 @@
   }
 
   .main > section {
-    height: auto;
+    height: 100vh;
     max-height: none;
     padding: 60px 16px;
   }
