@@ -32,7 +32,7 @@ export default function SecondSection() {
               <p>Here are a few technologies I&apos;ve been working with recently:</p>
             </div>
             <ul className={styles['skills-list']}>
-              <li>React native</li>
+              {/* <li>React native</li> */}
               <li>Next.js</li>
               <li>Tailwind css</li>
               <li>Redux</li>
