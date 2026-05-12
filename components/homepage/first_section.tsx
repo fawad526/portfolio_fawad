@@ -1,16 +1,19 @@
 import styles from './first_section.module.css';
 import { useEffect, useRef, useState } from 'react';
 
-const techStack = [
+const outerOrbit = [
   { name: 'React', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
   { name: 'Next.js', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-line.svg' },
   { name: 'TypeScript', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
   { name: 'Node.js', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
   { name: 'PostgreSQL', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
-  { name: 'MongoDB', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
   { name: 'AWS', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg' },
   { name: 'Docker', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
   { name: 'Tailwind', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+];
+
+const innerOrbit = [
+  { name: 'MongoDB', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
   { name: 'Redux', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg' },
   { name: 'Express', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
   { name: 'Prisma', src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg' },
@@ -109,23 +112,41 @@ export default function FirstSection() {
             <div className={styles['core-glow']} />
           </div>
 
-          {techStack.map((tech, i) => {
-            const total = techStack.length;
-            const angle = (360 / total) * i;
-            return (
-              <div
-                key={tech.name}
-                className={styles['tech-orb']}
-                style={{
-                  transform: `rotate(${angle}deg) translate(180px) rotate(-${angle}deg)`,
-                  animationDelay: `${i * 0.15}s`,
-                }}
-                title={tech.name}
-              >
-                <img src={tech.src} alt={tech.name} loading="lazy" />
-              </div>
-            );
-          })}
+          <div className={`${styles['orbit-wrap']} ${styles['orbit-outer-wrap']}`}>
+            {outerOrbit.map((tech, i) => {
+              const angle = (360 / outerOrbit.length) * i;
+              return (
+                <div
+                  key={tech.name}
+                  className={`${styles['tech-orb']} ${styles['tech-orb-outer']}`}
+                  style={{ ['--orb-angle' as any]: `${angle}deg` }}
+                  title={tech.name}
+                >
+                  <div className={styles['tech-orb-inner']}>
+                    <img src={tech.src} alt={tech.name} loading="lazy" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className={`${styles['orbit-wrap']} ${styles['orbit-inner-wrap']}`}>
+            {innerOrbit.map((tech, i) => {
+              const angle = (360 / innerOrbit.length) * i;
+              return (
+                <div
+                  key={tech.name}
+                  className={`${styles['tech-orb']} ${styles['tech-orb-inner-pos']}`}
+                  style={{ ['--orb-angle' as any]: `${angle}deg` }}
+                  title={tech.name}
+                >
+                  <div className={styles['tech-orb-inner']}>
+                    <img src={tech.src} alt={tech.name} loading="lazy" />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
 
