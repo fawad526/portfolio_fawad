@@ -1,139 +1,148 @@
 import Image from "next/image";
-// Import the FontAwesomeIcon component
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// Import the brands library to get access to the brands
 import { faGithub, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { useEffect } from "react";
 import { useState } from "react";
 import styles from './side_panel.module.css';
 import { useSectionState } from "../context/section_state_provider";
-const Flip = require('react-reveal/Flip');
 import full_pic from '../public/full_pic.jpg';
-import path from 'path';
-import { faEnvelope, faPhone, faNavicon, faClose } from "@fortawesome/free-solid-svg-icons";
-
-const Jello = require('react-reveal/Jello');
+import {
+  faEnvelope,
+  faPhone,
+  faNavicon,
+  faClose,
+  faLocationDot,
+  faCircle,
+  faDownload,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function SidePanel() {
   const { sectionState } = useSectionState();
-
   const [icon, setIcon] = useState(faNavicon);
 
   const handleNavIconClick = () => {
-    if (icon === faNavicon) {
-      setIcon(faClose);
-    } else {
-      setIcon(faNavicon);
-    }
-  }
+    setIcon(icon === faNavicon ? faClose : faNavicon);
+  };
+
   return (
     <>
       <div className={styles["nav-btn"]}>
         <button title="Nav Menu Button" onClick={handleNavIconClick}>
-          <FontAwesomeIcon icon={icon} size="3x"/>
+          <FontAwesomeIcon icon={icon} size="2x" />
         </button>
       </div>
-      <div className={styles["side-panel"] + " " + (icon === faNavicon ? styles["hidden"] : "")}>
-        <div className={styles["side-panel__header"]}>
-          <div className={styles["side-panel__profile-image"]}>
-            {/* <div className={styles["age"]}>
-              <div className={styles["years"]}>22</div>
-              <Jello><div className={styles["years-string"]}>&nbsp; Years 9 months</div></Jello>
-              </div>
-            <div className={styles["hiring-status"]}>
+      <aside className={`${styles["side-panel"]} ${icon === faNavicon ? styles["hidden"] : ""}`}>
+        <div className={styles["glow-orb"]} aria-hidden="true" />
+        <div className={styles["glow-orb-2"]} aria-hidden="true" />
 
-              <div className={styles["status-short"]}>
-                {seedData?.user?.hireable ? "A" : "O"}
+        <div className={styles["side-panel__inner"]}>
+          <div className={styles["brand"]}>
+            <span className={styles["brand-dot"]} />
+            <span className={styles["brand-text"]}>FI<span>.</span>dev</span>
+          </div>
+
+          <div className={styles["profile-wrap"]}>
+            <div className={styles["profile-ring"]}>
+              <div className={styles["profile-image-container"]}>
+                <Image
+                  src={full_pic.src}
+                  alt="Muhammad Fawad Iqbal"
+                  layout="fill"
+                  objectFit="cover"
+                  className={styles["profile-image"]}
+                  data-testid="profile_image"
+                />
               </div>
-              <Jello>
-                <div className={styles['status-complete']}>
-                  {seedData?.user?.hireable ? "ctively Looking" : "pen For Opportunity"}
-                </div>
-              </Jello>
-            </div> */}
-            <Flip left opposite cascade when={sectionState.section_number===0} duration={500} delay={1000}>
-              <Image
-                src={full_pic.src}
-                alt="profile_image_alternate"
-                layout="fill"
-                objectFit="cover"
-                className={styles["side-panel_profile-image"]}
-                data-testid="profile_image_alternate"
-              />
-            </Flip>
-            <Flip left opposite cascade when={sectionState.section_number>0} duration={500} delay={1000}>
-              <Image
-                src={full_pic.src}
-                alt="profile_image"
-                layout="fill"
-                objectFit="cover"
-                className={styles["side-panel_profile-image"]}
-                data-testid="profile_image"
-              />
-            </Flip>
-          </div>
-          <div className={styles["side-panel__header-subtitle"]}>
-            <h3 data-testid="profession">Full Stack Developer</h3>
-            <h4>Islamabad, Pakistan</h4>
-          </div>
-          <div className={styles["side-panel__header-social"]}>
-            <a href="https://github.com/fawad526" title="GitHub Link" target="_blank" rel="noopener">
-              <FontAwesomeIcon
-                icon={faGithub}
-                data-testid="social-media-icon"
-                size="2x"
-              />
-            </a>
-            <a href="https://www.linkedin.com/in/fawad526" title="LinkedIn Link" target="_blank" rel="noopener">
-              <FontAwesomeIcon
-                icon={faLinkedin}
-                data-testid="social-media-icon"
-                size="2x"
-              />
-            </a>
-            <a href="https://x.com/FawadBravo526" title="Twitter Link" target="_blank" rel="noopener">
-              <FontAwesomeIcon
-                icon={faTwitter}
-                data-testid="social-media-icon"
-                size="2x"
-              />
-            </a>
-          </div>
-        </div>
-        <div className={styles["side-panel__body"]}>
-          <div className={styles['contact-details']}>
-            <div className={styles["side-panel__body-item"]}>
-              <div className={styles["side-panel__body-item-title"] + " " + styles['icon']}>
-                <FontAwesomeIcon icon={faEnvelope} size="2x" />
-              </div>
-              <div className={styles["side-panel__body-item-content"]}>
-                <p>
-                  <a href="mailto:fawadiqbal274@gmail.com" data-testid="email">fawadiqbal274@gmail.com</a>
-                </p>
+              <div className={styles["status-badge"]} title="Available for opportunities">
+                <FontAwesomeIcon icon={faCircle} className={styles["status-dot"]} />
+                <span>Available</span>
               </div>
             </div>
-            <div className={styles["side-panel__body-item"]}>
-              <div className={styles["side-panel__body-item-title"] + " " + styles['icon']}>
-                <FontAwesomeIcon icon={faPhone} size="2x" />
-              </div>
-              <div className={styles["side-panel__body-item-content"]}>
-                <p>
-                  <a href="tel:+923709720033" data-testid="phone">+92 3709720033</a>
-                </p>
-              </div>
+
+            <h2 className={styles["name"]}>Fawad Iqbal</h2>
+            <p className={styles["role"]} data-testid="profession">Full Stack Developer</p>
+            <div className={styles["location"]}>
+              <FontAwesomeIcon icon={faLocationDot} />
+              <span>Islamabad, Pakistan</span>
             </div>
           </div>
-          {/* You can add a static highlight or message here if needed */}
-        </div>
-        <div className={styles["side-panel__footer"]}>
-          <div className={styles["side-panel__footer-item"]}>
-            <a href="https://github.com/fawad526" title="GitHub Profile" target="_blank" rel="noopener">
-              View GitHub Profile
+
+          <div className={styles["divider"]} />
+
+          <div className={styles["contact-block"]}>
+            <a
+              href="mailto:fawadiqbal274@gmail.com"
+              className={styles["contact-row"]}
+              data-testid="email"
+            >
+              <span className={styles["contact-icon"]}>
+                <FontAwesomeIcon icon={faEnvelope} />
+              </span>
+              <div className={styles["contact-text"]}>
+                <span className={styles["contact-label"]}>Email</span>
+                <span className={styles["contact-value"]}>fawadiqbal274@gmail.com</span>
+              </div>
+            </a>
+            <a
+              href="tel:+923709720033"
+              className={styles["contact-row"]}
+              data-testid="phone"
+            >
+              <span className={styles["contact-icon"]}>
+                <FontAwesomeIcon icon={faPhone} />
+              </span>
+              <div className={styles["contact-text"]}>
+                <span className={styles["contact-label"]}>Phone</span>
+                <span className={styles["contact-value"]}>+92 370 9720033</span>
+              </div>
             </a>
           </div>
+
+          <div className={styles["divider"]} />
+
+          <div className={styles["socials"]}>
+            <a
+              href="https://github.com/fawad526"
+              title="GitHub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles["social-link"]}
+              data-testid="social-media-icon"
+            >
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/fawad526"
+              title="LinkedIn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles["social-link"]}
+              data-testid="social-media-icon"
+            >
+              <FontAwesomeIcon icon={faLinkedin} />
+            </a>
+            <a
+              href="https://x.com/FawadBravo526"
+              title="Twitter"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles["social-link"]}
+              data-testid="social-media-icon"
+            >
+              <FontAwesomeIcon icon={faTwitter} />
+            </a>
+          </div>
+
+          <a
+            href="/Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles["resume-btn"]}
+          >
+            <FontAwesomeIcon icon={faDownload} />
+            <span>Download Resume</span>
+          </a>
         </div>
-      </div>
+      </aside>
     </>
   );
-
 }

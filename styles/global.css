@@ -1,15 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Dirt&family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg-deep: #060914;
+  --bg-base: #0a0f1f;
+  --bg-elevated: #111733;
+  --bg-card: rgba(20, 27, 56, 0.55);
+  --bg-card-solid: #141b38;
+  --border-soft: rgba(0, 217, 255, 0.12);
+  --border-strong: rgba(0, 217, 255, 0.3);
+
+  --text-primary: #e6f1ff;
+  --text-secondary: #a6b1cf;
+  --text-muted: #6c7a99;
+
+  --accent: #00d9ff;
+  --accent-soft: rgba(0, 217, 255, 0.15);
+  --accent-glow: rgba(0, 217, 255, 0.45);
+  --secondary-accent: #b388ff;
+  --tertiary-accent: #ff5fa7;
+
+  --gradient-primary: linear-gradient(135deg, #00d9ff 0%, #b388ff 50%, #ff5fa7 100%);
+  --gradient-card: linear-gradient(145deg, rgba(20, 27, 56, 0.7) 0%, rgba(10, 15, 31, 0.85) 100%);
+  --gradient-mesh: radial-gradient(at 0% 0%, rgba(0, 217, 255, 0.15) 0px, transparent 50%),
+                   radial-gradient(at 100% 0%, rgba(179, 136, 255, 0.15) 0px, transparent 50%),
+                   radial-gradient(at 50% 100%, rgba(255, 95, 167, 0.1) 0px, transparent 50%);
+
+  --shadow-glow: 0 0 40px rgba(0, 217, 255, 0.25), 0 0 80px rgba(179, 136, 255, 0.1);
+  --shadow-elevated: 0 24px 60px rgba(0, 0, 0, 0.45);
+
+  --font-display: 'Space Grotesk', 'Inter', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-body);
   font-weight: 400;
+  background-color: var(--bg-deep);
+  color: var(--text-primary);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 * {
   box-sizing: border-box;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--secondary-accent);
 }
 
 ::-webkit-scrollbar {
@@ -17,11 +65,21 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(209, 209, 209);
+  background-color: var(--bg-deep);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #564f8f;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--secondary-accent) 100%);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--secondary-accent) 0%, var(--accent) 100%);
+}
+
+::selection {
+  background-color: var(--accent);
+  color: var(--bg-deep);
 }
 
 h1,
@@ -30,11 +88,96 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Rubik Dirt', sans-serif;
-  font-weight: 400;
-  color: #564f8f;
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
 }
 
 :not(svg) {
   transform-origin: 0px 0px;
+}
+
+@keyframes float-up {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes float-rotate {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-18px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 217, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 217, 255, 0.6);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blob {
+  0%, 100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    border-radius: 70% 30% 50% 50% / 40% 70% 30% 60%;
+    transform: translate(-20px, 30px) scale(0.95);
+  }
 }
