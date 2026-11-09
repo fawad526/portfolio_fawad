@@ -122,6 +122,32 @@ interface Post {
 
 const posts: Post[] = [
   {
+    title: 'Relaunching Kareer Konnect: from final-year project to live platform',
+    blurb: 'Why I rebuilt my FYP from the ground up, what changed for researchers and students, and how it now runs on AWS.',
+    date: 'Nov 2026',
+    read: '8 min read',
+    gradient: 'linear-gradient(135deg, #22d3ee 0%, #3b82f6 50%, #8b5cf6 100%)',
+    content: [
+      { type: 'p', text: 'Kareer Konnect started life as my final-year project at Air University, built during the FYP Accelerator Program with 10Pearls. The idea was simple: one place where employers, jobseekers, students and researchers could find each other based on real criteria instead of keyword luck. It worked, it got me a degree, and then — like most FYPs — it sat in a repository gathering dust.' },
+      { type: 'p', text: 'This month I officially launched the revamped version. It is live at app.34-204-229-91.sslip.io, running on AWS, and it is a very different product from the one I defended in 2023. This post is about what changed, why, and what I learned rebuilding something I thought I already understood.' },
+      { type: 'h', text: 'Why rebuild instead of patch' },
+      { type: 'p', text: 'The original codebase was a classic student MERN app: everything in one Express server, authentication bolted on late, MongoDB collections shaped around whatever the UI needed that week. It was fine for a demo. It was not fine for real users with real data who expect the thing to still be up tomorrow.' },
+      { type: 'p', text: 'After two years of building production systems at Liam Crest and Digistromer, I could see every shortcut I had taken. Patching them one at a time would have meant fighting the old architecture at every step. Starting clean — but keeping the domain model and the lessons — was faster and produced something I actually trust.' },
+      { type: 'h', text: 'Refocusing on researchers and students' },
+      { type: 'p', text: 'The biggest product change was narrowing the focus. The first version tried to serve everyone equally, which meant it served nobody particularly well. The relaunch puts researchers and students at the centre: students looking for research supervisors, internships and early-career roles, and faculty or researchers looking for students to join projects.' },
+      { type: 'p', text: 'Concretely that means structured profiles for research interests, publications and skills rather than a free-text bio, a matching layer that connects students to faculty based on overlapping interests, and project postings that look like research calls instead of job ads. Employers and jobseekers are still supported, but the experience is built around the academic use case first.' },
+      { type: 'h', text: 'What changed under the hood' },
+      { type: 'p', text: 'The stack is still MERN — MongoDB, Express, React and Node.js — because it fits the data shape well and I know it deeply. What changed is how it is organised. The API is split into clear modules with validation at the boundary, authentication and role-based access are handled centrally instead of per-route, and the data model was redesigned around profiles, projects and matches rather than screens.' },
+      { type: 'p', text: 'Filtering got a proper rebuild too. Instead of loading everything and filtering in the browser, search and matching run server-side with indexed queries, so the platform stays fast as the number of profiles grows.' },
+      { type: 'h', text: 'Deploying on AWS' },
+      { type: 'p', text: 'The first version was never properly deployed — it ran on a laptop during the demo. This time the platform runs on AWS with the application tier on EC2 behind HTTPS, environment-based configuration, and a repeatable deployment process so a release is a push and a restart rather than an afternoon of manual steps. Media and uploads live in S3 so the app servers stay stateless, the same pattern I use on the real-estate platform at work.' },
+      { type: 'p', text: 'Running it myself also forced the operational basics I skipped as a student: health checks, structured logs, backups and a plan for what happens when something breaks at 2am.' },
+      { type: 'h', text: 'What I learned rebuilding my own work' },
+      { type: 'p', text: 'Three things stood out. First, the domain knowledge from the FYP was the real asset — the code was disposable, but understanding how students, researchers and employers actually look for each other was not. Second, scope is a feature: cutting the product down to serve researchers and students well made every design decision easier. Third, shipping is the only real finish line. A project that only exists in a repository has not taught you what production will.' },
+      { type: 'p', text: 'Kareer Konnect is live now. If you are a student looking for research opportunities, or a researcher looking for students, try it — and tell me what breaks.' },
+    ],
+  },
+  {
     title: 'Architecting a multi-tenant SaaS on AWS',
     blurb: 'How I designed tenant isolation, shared infrastructure and zero-downtime deploys for a real-estate platform.',
     date: 'Jul 2025',
