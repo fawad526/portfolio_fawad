@@ -12,13 +12,13 @@ const MAP_EMBED =
 
 const projects = [
   {
-    name: 'SellAnyProperty',
+    name: 'BrokerPromote',
     image: '/sellanyproperty.png',
-    url: 'https://github.com/fawad526',
+    url: 'https://brokerpromote.com/',
     metricLabel: 'Production · AWS',
     stat: 'Live',
     description:
-      'Multi-tenant real-estate platform with tenant-based data isolation, dynamic content rendering and end-to-end deployment on AWS for high availability.',
+      'Multi-tenant PropTech SaaS for UAE real-estate brokers — branded listing sites, tenant-based data isolation, dynamic content rendering and end-to-end deployment on AWS.',
     stack: ['Next.js', 'Node.js', 'PostgreSQL', 'Prisma', 'AWS'],
     accent: 'cyan',
   },
@@ -121,6 +121,32 @@ interface Post {
 }
 
 const posts: Post[] = [
+  {
+    title: 'Building BrokerPromote: a multi-tenant SaaS for UAE real-estate brokers',
+    blurb: 'How one codebase gives every broker their own branded listing site — and what it took to run it in production on AWS.',
+    date: 'Nov 2026',
+    read: '10 min read',
+    gradient: 'linear-gradient(135deg, #f97316 0%, #ef4444 45%, #7c3aed 100%)',
+    content: [
+      { type: 'p', text: 'BrokerPromote is the platform I have spent the better part of two years building at Digistromer. It is live at brokerpromote.com, and it solves a problem every real-estate broker in the UAE has: they need a professional, branded web presence with their listings, their agents and their lead capture — but they are brokers, not web developers, and they cannot afford to build and maintain a site from scratch.' },
+      { type: 'p', text: 'The answer is multi-tenancy. One codebase, one infrastructure, and every broker gets what looks and behaves like their own independent product. This post walks through how that works, the hard parts, and what I would do differently.' },
+      { type: 'h', text: 'What a broker actually gets' },
+      { type: 'p', text: 'When a brokerage signs up, they get a fully branded site on their own subdomain or custom domain: their logo, colours, agents and listings, with no visible trace of the other tenants on the platform. Behind that sits a management dashboard where they add properties, manage agents, handle enquiries and control what is published.' },
+      { type: 'p', text: 'Listings are the heart of it. Each property carries structured data — location, price, type, size, amenities, media — and renders into search, filter and detail pages that are fast enough to feel native. Media is uploaded once and served from S3, so a broker with thousands of photos never slows down the site for everyone else.' },
+      { type: 'h', text: 'The multi-tenant core' },
+      { type: 'p', text: 'Every request is resolved to a tenant before any business logic runs. On the public side that comes from the hostname; on the API side from a signed token. That tenant identifier is attached to the request context and threaded through every database query. The data access layer refuses to run a query without it, so isolation does not depend on anyone remembering a WHERE clause.' },
+      { type: 'p', text: 'I went with a shared PostgreSQL schema and a tenant column on every table, with the filter injected automatically through Prisma. It is the cheapest model to operate and scales comfortably to the number of brokerages we are targeting, while leaving a clear path to move a large client to their own schema if the business ever justifies it.' },
+      { type: 'h', text: 'Frontend and backend' },
+      { type: 'p', text: 'The frontend is Next.js, which is a natural fit for this product: public listing pages need to be server-rendered for SEO and speed, while the broker dashboard is a rich client-side app. Tenant-aware rendering means the same page component produces a completely different branded site depending on who the request is for.' },
+      { type: 'p', text: 'The backend is Node.js with PostgreSQL through Prisma. Heavier jobs — image processing, feed generation, notifications — run outside the request cycle so the API stays responsive. Validation lives at the boundary, and role-based access controls what each user inside a brokerage can see and change.' },
+      { type: 'h', text: 'Running it on AWS' },
+      { type: 'p', text: 'I own the infrastructure end to end. The application tier runs on EC2 behind a load balancer, PostgreSQL on RDS for managed backups and failover, and all media in S3 behind signed URLs. Keeping the app servers stateless is what lets me scale them horizontally and replace them without ceremony.' },
+      { type: 'p', text: 'Deployments go through CI/CD on every merge to main. Health checks gate traffic to new instances, rollbacks are a pipeline step rather than a panic, and structured logging plus monitoring tells me which tenant and which request broke, not just that something did.' },
+      { type: 'h', text: 'Hard lessons' },
+      { type: 'p', text: 'Custom domains were harder than they looked — DNS, certificates and routing each have their own failure modes, and brokers expect all of it to just work. Media at scale needed real thought about upload flow, sizing and caching early, not later. And the UAE real-estate market has its own regulatory expectations around how listings are advertised, which shaped features more than I anticipated at the start.' },
+      { type: 'p', text: 'The biggest lesson is the one that keeps repeating across everything I build: decide your isolation model and your operational story before the first customer, not after. BrokerPromote is live, brokers are on it, and the architecture decisions made early are the reason it has stayed boring to operate.' },
+    ],
+  },
   {
     title: 'Relaunching Kareer Konnect: from final-year project to live platform',
     blurb: 'Why I rebuilt my FYP from the ground up, what changed for researchers and students, and how it now runs on AWS.',
